@@ -1,18 +1,21 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import Landing from "./components/Landing";
 import Map from "./components/Map";
-
-import './App.css';
-
+import Nav from "./components/Nav";
 
 function App() {
   return (
     <Router>
-      <div className="App">
-        <h1>Welcome to the St Vincent and the Grenadines Interactive Map</h1>
-        <Link to="/map">View Map</Link>
-      </div>
-      <Route path="/map" component={Map} />
+      <Route path="/map">
+        <Nav></Nav>
+        <Map></Map>
+      </Route>
+      <Route exact path="/">
+        <div className="App">
+          <Landing></Landing>
+        </div>
+      </Route>
     </Router>
   );
 }
