@@ -1,0 +1,31 @@
+.help {
+    background-color: #fff;
+    height: 90vh;
+    max-height:90vh;
+    width:90vw;
+    position: absolute;
+    top:0;
+    left:0;
+    margin:5vh 5vw;
+    z-index:3;
+    border-radius:10px;
+    filter: drop-shadow(0px 5px 10px rgba(0,0,0,0.4));
+    overflow-y:auto;
+}
+.Cross {
+    padding: 10px;
+}
+.title {
+    color:#fff;
+    text-align:center;
+    width:100%;
+    text-shadow:none;
+    background-image: linear-gradient(to left,#2EA31B, #676BBC);
+    padding:10px 0;
+    font-weight: 300;
+}
+.paragraph {
+    width:80%;
+    margin: 0 auto;
+    text-shadow:none;
+}

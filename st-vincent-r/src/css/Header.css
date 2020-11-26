@@ -1,15 +1,17 @@
 Header {
     width:100%;
-    background-color:#676BBC;
+    background-image: linear-gradient(to left,#2EA31B, #676BBC);
     text-align:center;
     height:7vh;
     color: white;
     display:flex;
 }
-
 header h3 {
     margin: auto;
     justify-content: center;
     font-weight:300;
     font-size: 22px;
+}
+.Help {
+    margin:15px 0 10px 10px;
 }
