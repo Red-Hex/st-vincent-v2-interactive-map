@@ -1,9 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
+
+import "../css/Nav.css";
 
 function Nav() {
     return (
         <React.Fragment>
-            <ul>
+            <ul className="Nav">
                 <li><a href=""></a>History</li>
                 <li><a href=""></a>Garifuna</li>
                 <li><a href=""></a>Contemporary</li>

@@ -1,0 +1,15 @@
+Header {
+    width:100%;
+    background-color:#676BBC;
+    text-align:center;
+    height:7vh;
+    color: white;
+    display:flex;
+}
+
+header h3 {
+    margin: auto;
+    justify-content: center;
+    font-weight:300;
+    font-size: 22px;
+}
