@@ -1,0 +1,37 @@
+.landing {
+    width:100vw;
+    height:100vh;
+    background-image: linear-gradient(to left,#2EA31B, #676BBC);
+    text-align:center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:#fff;
+}
+.wrap {
+    margin:auto;
+    background:none;
+}
+.l-title {
+    font-weight:400;
+}
+.button {
+    text-decoration:none;
+}
+.button p {
+    background-color: #676BBC;
+    width:100px;
+    padding: 10px 10px;
+    margin: auto auto 15px auto;
+    border-radius:10px;
+    color:#fff;
+    transition: .1s ease-in;
+}
+.button p:hover {
+    transform: scale(1.1);
+    color: rgba(0,0,0,0.4);
+}
+.about {
+    width:800px;
+    margin:0 auto;
+}
