@@ -3,7 +3,7 @@
     top: 140px;
     z-index: 2;
     color:#fff;
-    margin-left:10px;
+    margin-left:20px;
     height:80vh;
 }
 .Nav li {
@@ -21,10 +21,6 @@
 .Nav li:hover {
     transform: scale(1.1);
     color: rgba(0,0,0,0.4);
-}
-.Admin {
-    position:absolute;
-    bottom:10px;
 }
 
 

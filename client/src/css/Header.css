@@ -1,17 +1,25 @@
 Header {
     width:100%;
-    background-image: linear-gradient(to right, #2af598 10%, #009efd 100%);
-    text-align:center;
+    background-image: linear-gradient(to left, #2af598 10%, #009efd 100%);
     height:7vh;
     color: white;
     display:flex;
 }
 header h3 {
-    margin: auto;
-    justify-content: center;
     font-weight:300;
     font-size: 22px;
+    margin-left: 20px;
+    width:70vw;
+}
+.icons {
+    width:30vw;
+    float:right;
 }
 .Help {
-    margin:15px 0 10px 10px;
+    margin:15px 20px 10px 10px;
+    float:right;
+}
+.Admin {
+    margin:15px 0 10px 0;
+    float:right;
 }

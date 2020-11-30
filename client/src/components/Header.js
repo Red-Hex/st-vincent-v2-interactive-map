@@ -1,6 +1,7 @@
 import React from "react";
-import { FaQuestion } from "react-icons/fa";
+import { FaQuestion, FaWrench } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
+import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
 import "../css/Header.css";
@@ -11,12 +12,19 @@ const Header = ({setShowModal}) => {
     if (location.pathname !== "/") { 
         return (
             <header>
-                <div onClick={() => setShowModal(true)}>
-                    <IconContext.Provider value= {{ size: "2em", color:"#fff", className:"Help"}} >
-                        <FaQuestion></FaQuestion>
-                    </IconContext.Provider>
-                </div>
                 <h3>St Vincent and the Grenadines Interactive Map</h3>
+                <div className="icons">
+                    <div onClick={() => setShowModal(true)}>
+                        <IconContext.Provider value= {{ size: "2em", color:"#fff", className:"Help"}} >
+                            <FaQuestion></FaQuestion>
+                        </IconContext.Provider>
+                    </div>
+                    <Link to="/admin">
+                    <IconContext.Provider value= {{ size: "2em", color:"#2EA31B", className:"Admin"}}>
+                        <FaWrench></FaWrench>
+                    </IconContext.Provider>
+                    </Link>
+                </div>
             </header>
     )} else {
         return (
