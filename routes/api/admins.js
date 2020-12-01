@@ -5,9 +5,10 @@ const jwt = require('jsonwebtoken');
 const config = require('config');
 const { check, validationResult } = require('express-validator');
 
+const auth = require('../../middleware/auth');
 const Admin = require('../../models/Admin');
 
-// @route   POST api/admins
+// @route   POST api/admins/
 // @desc    Register an admin
 // @access  Private
 
@@ -70,5 +71,20 @@ router.post('/', [
         }
 
     });
+
+// @route  DELETE api/admin/:id
+// @desc   Delete Admin
+// @access Private
+
+router.delete('/:id', auth, async (req, res) => {
+    try {
+        await Admin.findOneAndRemove({ _id: req.admin.id });
+
+        res.json({ msg: 'Admin has been deleted'});
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
 
 module.exports = router;
