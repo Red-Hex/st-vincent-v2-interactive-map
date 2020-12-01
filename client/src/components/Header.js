@@ -15,12 +15,12 @@ const Header = ({setShowModal}) => {
                 <h3>St Vincent and the Grenadines Interactive Map</h3>
                 <div className="icons">
                     <div onClick={() => setShowModal(true)}>
-                        <IconContext.Provider value= {{ size: "2em", color:"#fff", className:"Help"}} >
+                        <IconContext.Provider value= {{ size: "2em", color:"#009EFD", className:"Help"}} >
                             <FaQuestion></FaQuestion>
                         </IconContext.Provider>
                     </div>
                     <Link to="/admin">
-                    <IconContext.Provider value= {{ size: "2em", color:"#2af598", className:"Admin"}}>
+                    <IconContext.Provider value= {{ size: "2em", color:"#009EFD", className:"Admin"}}>
                         <FaWrench></FaWrench>
                     </IconContext.Provider>
                     </Link>
