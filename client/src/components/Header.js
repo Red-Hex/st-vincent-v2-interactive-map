@@ -20,9 +20,9 @@ const Header = ({setShowModal}) => {
                         </IconContext.Provider>
                     </div>
                     <Link to="/admin">
-                    <IconContext.Provider value= {{ size: "2em", color:"#009EFD", className:"Admin"}}>
-                        <FaWrench></FaWrench>
-                    </IconContext.Provider>
+                        <IconContext.Provider value= {{ size: "2em", color:"#009EFD", className:"Admin"}}>
+                            <FaWrench></FaWrench>
+                        </IconContext.Provider>
                     </Link>
                 </div>
             </header>

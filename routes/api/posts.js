@@ -50,7 +50,7 @@ router.post('/', [auth, [
 // @desc   Get a post by id
 // @access Private
 
-router.get('/', auth, async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const posts = await Post.find().sort({ date: -1 });
         res.json(posts);
@@ -64,7 +64,7 @@ router.get('/', auth, async (req, res) => {
 // @desc   Get a post by id
 // @access Private
 
-router.get('/:id', auth, async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
         const post = await Post.findById(req.params.id);
 
