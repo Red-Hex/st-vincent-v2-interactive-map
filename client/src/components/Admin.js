@@ -32,7 +32,7 @@ const Admin = ()  => {
                             <th>Post Name</th>
                             <th>Lattitude</th>
                             <th>Longitude</th>
-                            <th>Actions</th>
+                            <th colSpan='2'>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -42,6 +42,7 @@ const Admin = ()  => {
                                     <td>{post.name}</td>
                                     <td>{post.lattitude}</td>
                                     <td>{post.longitude}</td>
+                                    <td></td>
                                     <td></td>
                                 </tr>
                             )
