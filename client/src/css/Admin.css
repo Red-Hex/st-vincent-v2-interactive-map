@@ -2,3 +2,20 @@
     width:80vw;
     margin: 0 auto;
 }
+.backButton {
+    transition: .2s ease-in;
+    width:130px;
+    text-align:center;
+    color: #fff;
+    background-color: #009efd;
+    padding: 10px 0;
+    border-radius: 10px;
+}
+.backButton:hover {
+    transform:scale(1.1);
+    box-shadow: 0 2.5px 5px rgba(0,0,0,0.25);
+    background-color: #2af598;
+}
+.buttons {
+
+}

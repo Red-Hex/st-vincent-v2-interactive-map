@@ -10,9 +10,11 @@ const Admin = ()  => {
         <div class="admin">
             <React.Fragment>
                 <Link to="/map">
-                    <p>Back To Map</p>
+                    <p className='backButton'>Back To Map</p>
                 </Link>
-                
+                <h2 class="title">Admin Panel</h2>
+                <p className='backButton'>Create Post</p>
+                <h2 class="title">Posts</h2>
             </React.Fragment>
         </div>
     )
