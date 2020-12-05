@@ -52,7 +52,7 @@ const CreateModal = ({setShowCreate}) => {
                             <FaTimes></FaTimes>
                         </IconContext.Provider>
                 </div>
-                <h2 class="title">Create Marker</h2>
+                <h2 className="title">Create Marker</h2>
                 <form className='form' onSubmit={e => onSubmit(e)}>
                     <div className='form-group'>
                         <input

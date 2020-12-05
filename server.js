@@ -9,8 +9,6 @@ app.use(cors());
 // Connect to the database
 connectDB();
 
-app.get('/', (req, res) => res.send('API Running'));
-
 // Middleware
 app.use(express.json({ extended: false }));
 app.get('/', (req, res) => res.send('API Running'));

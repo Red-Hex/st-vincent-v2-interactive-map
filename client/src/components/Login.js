@@ -1,7 +1,10 @@
 import React, { Fragment, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { login } from '../actions/auth';
 
-const Login = () => {
+export const Login = ({ login , isAuthenticated }) => {
     const [formData, setFormData] = useState({
         email: '',
         password: ''
@@ -14,28 +17,36 @@ const Login = () => {
 
     const onSubmit = async e => {
         e.preventDefault();
-            console.log('Success')
+            login(email, password)
+    };
+
+    // Redirection Once Successfully Logged in 
+    if(isAuthenticated) {
+        return <Redirect to="/admin" />;
     }
     return (
         <Fragment>
-            <h2 class="title">Log In to Admin Panel</h2>
+            <Link to="/map">
+                    <p className='backButton'>Back To Map</p>
+            </Link>
+            <h2 className="title">Log In to Admin Panel</h2>
             <form className='login' onSubmit={e => onSubmit(e)}>
                 <div className='form-group'>
                     <input
-                        type='email'
-                        placeholder='Email Address'
-                        name='email'
-                        vaule={email}
+                        type="email"
+                        placeholder="Email Address"
+                        name="email"
+                        value={email}
                         onChange={e => onChange(e)}
                         required
                     />
                 </div>
                 <div className='form-group'>
                     <input
-                        type='password'
-                        placeholder='Password'
-                        name='password'
-                        vaule={password}
+                        type="password"
+                        placeholder="Password"
+                        name="password"
+                        value={password}
                         onChange={e => onChange(e)}
                         required
                     />
@@ -47,6 +58,15 @@ const Login = () => {
             </form>
         </Fragment>
     )
+};
+
+Login.propTypes = {
+    login: PropTypes.func.isRequired,
+    isAuthenticated: PropTypes.bool
 }
 
-export default Login;
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps, { login })(Login);
