@@ -6,6 +6,7 @@ import Map from "./components/Map";
 import MarkerModal from "./components/MarkerModal";
 import Nav from "./components/Nav";
 import Help from "./components/Help";
+import Login from './components/Login';
 import Admin from "./components/Admin";
 
 import './css/App.css';
@@ -26,7 +27,10 @@ function App() {
         <Nav></Nav>
         <Map setShowModal={setModalLocation}></Map>
       </Route>
-      <Route path="/admin">
+      <Route path="/login">
+        <Login setShowModal={setShowModal}></Login>
+      </Route>
+      <Route path='/admin'>
         <Admin setShowModal={setShowModal}></Admin>
       </Route>
     </Router>
