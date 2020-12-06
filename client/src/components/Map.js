@@ -2,8 +2,6 @@ import React, { Fragment, useState, useEffect } from "react";
 import { GoogleMap, withScriptjs, withGoogleMap, Marker } from "react-google-maps";
 import axios from 'axios';
 
-import MarkerModal from './MarkerModal';
-
 
 const Map = withScriptjs(withGoogleMap(({setShowModal}) => {
   const [locations, setLocations] = useState([]);
@@ -26,9 +24,10 @@ const Map = withScriptjs(withGoogleMap(({setShowModal}) => {
       {locations.map(location => {
         return (
          <Marker
-         position={{ lat:location.lattitude, lng:location.longitude }}
-         onClick={() => setShowModal(location)}
-       />
+            key={location.id}
+            position={{ lat:location.lattitude, lng:location.longitude }}
+            onClick={() => setShowModal(location)}
+          />
       )})}
      
     </Fragment>

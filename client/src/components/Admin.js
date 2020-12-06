@@ -10,7 +10,7 @@ import CreateModal from './CreateModal';
 import "../css/Header.css";
 import "../css/Admin.css";
 
-export const Admin = ({ auth: logout })  => {
+export const Admin = ({ logout })  => {
     const [posts, setPosts] = useState([]);
     const [showCreate, setShowCreate] = useState(false);
 
@@ -22,22 +22,25 @@ export const Admin = ({ auth: logout })  => {
         });
     }, [showCreate]);
 
+    const unsetUser = () => {
+        logout();
+    };
     
     return (
-        <div class="admin">
+        <div className="admin">
             {showCreate ? <CreateModal setShowCreate={setShowCreate} />:null}
             <Fragment>
                 <Link to="/map">
                     <p className='backButton'>Back To Map</p>
                 </Link>
-                <h2 class="title">Admin Panel</h2>
+                <h2 className="title">Admin Panel</h2>
                 <div className='admin-buttons'>
                     <p onClick={() => {setShowCreate(true)}} className='backButton'>Create Post</p>
-                    <a href='/map' onClick={logout}>
+                    <a href="/map" onClick={unsetUser}>
                         <p className='backButton'>Log Out</p>
                     </a>
                 </div>
-                <h2 class="title">Posts</h2>
+                <h2 className="title">Posts</h2>
                 <table className='post-container'>
                     <thead>
                         <tr>
@@ -50,7 +53,7 @@ export const Admin = ({ auth: logout })  => {
                     <tbody>
                         {posts.map((post) => {
                             return (
-                                <tr className='project' key={post.id}>
+                                <tr className='project' key={post['_id']}>
                                     <td>{post.name}</td>
                                     <td>{post.lattitude}</td>
                                     <td>{post.longitude}</td>

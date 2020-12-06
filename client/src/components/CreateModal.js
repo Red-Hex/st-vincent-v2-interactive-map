@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect} from 'react';
 import { FaTimes } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 import '../css/Form.css'
 
@@ -20,20 +21,22 @@ const CreateModal = ({setShowCreate}) => {
 
     const onChange = e =>
         setFormData({ ...formData, [e.target.name]: e.target.value });
+
+    const token = useSelector(state => state.token)
     
     const onSubmit = async e => {
         e.preventDefault();
         console.log('Post Created');
-
-       axios.post('http://localhost:5000/api/posts', formData, {
-           headers: {
-               'x-auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJpZCI6IjVmYzZhMWU1NWZjZDgxNjdkMDRjZTIzMyJ9LCJpYXQiOjE2MDY4NjE0MDksImV4cCI6MTYwNzIyMTQwOX0._2owKanw3iySF-pe7XgLWuaAyxlzKK8RAJHbSgOfJ6o'
-           }
-       })
+    
+        axios.post('http://localhost:5000/api/posts', formData, {
+          headers: {
+              'x-auth-token': token
+          }
+      })
             .then(() => {
                 console.log('Post Created');
                 setShowCreate(false);
-            }) .catch(error => {
+            }).catch(error => {
                 console.log(error.message);
             }) 
     }

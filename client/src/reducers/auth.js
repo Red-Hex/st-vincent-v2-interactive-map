@@ -17,7 +17,7 @@ const initialState = {
 
 export default function(state = initialState, action) {
     const {type, payload} = action;
-
+    console.log(type);
     switch(type) {
         case USER_LOADED:
             return {
@@ -25,7 +25,7 @@ export default function(state = initialState, action) {
                 isAuthenticated: true,
                 loading: false,
                 admin: payload
-            };
+            }
         case LOGIN_SUCCESS: 
             localStorage.setItem('token', payload.token);
             return {
@@ -33,7 +33,7 @@ export default function(state = initialState, action) {
                ...payload,
                isAuthenticated: true,
                loading: false
-            };
+            }
         case AUTH_ERROR:
         case LOGIN_FAIL:
         case LOGOUT:
@@ -43,7 +43,7 @@ export default function(state = initialState, action) {
                 token: null,
                 isAuthenticated: false,
                 loading:false
-            };
+            }
         default: 
             return state;
     }
