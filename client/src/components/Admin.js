@@ -1,15 +1,16 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, Fragment} from "react";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import CreateModal from './CreateModal';
 import { logout } from '../actions/auth';
+import CreateModal from './CreateModal';
+
 
 import "../css/Header.css";
 import "../css/Admin.css";
 
-const Admin = ()  => {
+export const Admin = ({ auth: logout })  => {
     const [posts, setPosts] = useState([]);
     const [showCreate, setShowCreate] = useState(false);
 
@@ -25,13 +26,17 @@ const Admin = ()  => {
     return (
         <div class="admin">
             {showCreate ? <CreateModal setShowCreate={setShowCreate} />:null}
-            <React.Fragment>
+            <Fragment>
                 <Link to="/map">
                     <p className='backButton'>Back To Map</p>
                 </Link>
                 <h2 class="title">Admin Panel</h2>
-                <p onClick={() => {setShowCreate(true)}} className='backButton'>Create Post</p>
-                <Link onClick={logout} to='/map' className='backButton'>Log Out</Link>
+                <div className='admin-buttons'>
+                    <p onClick={() => {setShowCreate(true)}} className='backButton'>Create Post</p>
+                    <a href="/map" onClick={logout}>
+                        <p className='backButton'>Log Out</p>
+                    </a>
+                </div>
                 <h2 class="title">Posts</h2>
                 <table className='post-container'>
                     <thead>
@@ -56,18 +61,18 @@ const Admin = ()  => {
                         })}
                     </tbody>
                 </table>
-            </React.Fragment>
+            </Fragment>
         </div>
     )
-}
+};
 
 Admin.propTypes = {
     logout: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
-}
+};
 
 const mapStateToProps = state => ({
     auth: state.auth
-})
+});
 
-export default connect(mapStateToProps, {logout})(Admin);
+export default connect(mapStateToProps, { logout })(Admin);
