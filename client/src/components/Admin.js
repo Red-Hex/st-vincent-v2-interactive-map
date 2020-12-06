@@ -33,7 +33,7 @@ export const Admin = ({ auth: logout })  => {
                 <h2 class="title">Admin Panel</h2>
                 <div className='admin-buttons'>
                     <p onClick={() => {setShowCreate(true)}} className='backButton'>Create Post</p>
-                    <a href="/map" onClick={logout}>
+                    <a href='/map' onClick={logout}>
                         <p className='backButton'>Log Out</p>
                     </a>
                 </div>

@@ -1,0 +1,30 @@
+.form {
+    display:flex;
+    flex-direction: column;
+    margin:auto;
+    width: 80vw;
+}
+.form-group {
+    margin: 20px 0;
+    margin:10px auto;
+}
+.form-group input {
+    width:300px;
+    border: 1px solid #009EFD;
+    padding: 20px 30px;
+    border-radius: 10px;
+    outline:none;
+}
+.i-button {
+    background-color: #009EFD;
+    color: #fff;
+    transition: .1s ease-in;
+    border:none;
+    box-shadow: none;
+}
+.i-button:hover {
+    background-color: #2af598;
+    transform: scale(1.1);
+    border:none;
+    color: rgba(41, 41, 41);
+}

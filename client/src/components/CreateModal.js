@@ -3,6 +3,8 @@ import { FaTimes } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
 import axios from 'axios';
 
+import '../css/Form.css'
+
 const CreateModal = ({setShowCreate}) => {
     const [formData, setFormData] = useState({
         name: '',
@@ -96,7 +98,7 @@ const CreateModal = ({setShowCreate}) => {
                         />
                     </div>
                     <div className='form-group'>
-                        <input
+                        <input className='i-button'
                             type='number'
                             placeholder='Longitude'
                             name='longitude'

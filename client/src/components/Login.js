@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../actions/auth';
 
+import '../css/Form.css';
+
 export const Login = ({ login , isAuthenticated }) => {
     const [formData, setFormData] = useState({
         email: '',
@@ -30,7 +32,7 @@ export const Login = ({ login , isAuthenticated }) => {
                     <p className='backButton'>Back To Map</p>
             </Link>
             <h2 className="title">Log In to Admin Panel</h2>
-            <form className='login' onSubmit={e => onSubmit(e)}>
+            <form className='form' onSubmit={e => onSubmit(e)}>
                 <div className='form-group'>
                     <input
                         type="email"
@@ -50,9 +52,11 @@ export const Login = ({ login , isAuthenticated }) => {
                         onChange={e => onChange(e)}
                         required
                     />
-                    <input
-                        type='submit'
-                        value='Login'
+                </div>
+                <div className='form-group'>
+                    <input className='i-button'
+                            type='submit'
+                            value='Login'
                     />
                 </div>
             </form>
