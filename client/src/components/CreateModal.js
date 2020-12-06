@@ -66,7 +66,7 @@ const CreateModal = ({setShowCreate}) => {
                             required
                         />
                     </div>
-                    <div className='form-group'>
+                    <div className='category form-group'>
                         <select value={category_id} name='category_id' onChange={onChange} required>
                             <option value='' disabled>Select a Category</option>
                             
@@ -98,7 +98,7 @@ const CreateModal = ({setShowCreate}) => {
                         />
                     </div>
                     <div className='form-group'>
-                        <input className='i-button'
+                        <input
                             type='number'
                             placeholder='Longitude'
                             name='longitude'
@@ -107,7 +107,12 @@ const CreateModal = ({setShowCreate}) => {
                             required
                         />
                     </div>
-                    <button type='submit'>Create Post</button>
+                    <div className='form-group'>
+                    <input className='i-button'
+                            type='submit'
+                            value='Create Post'
+                    />
+                </div>
                 </form>
         </div>
         </Fragment>

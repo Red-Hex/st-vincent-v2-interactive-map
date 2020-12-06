@@ -15,6 +15,13 @@
     border-radius: 10px;
     outline:none;
 }
+.category select{
+    width:360px;
+    border: 1px solid #009EFD;
+    padding: 20px 30px;
+    border-radius: 10px;
+    outline:none;
+}
 .i-button {
     background-color: #009EFD;
     color: #fff;
