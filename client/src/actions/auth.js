@@ -23,7 +23,7 @@ export const loadAdmin = () => async dispatch => {
            type: USER_LOADED,
            payload: res.data
        });
-    } catch (err) {
+    } catch (error) {
         dispatch({
             type: AUTH_ERROR
         });
@@ -49,8 +49,8 @@ export const login = (email, password) => async dispatch => {
         });
 
         dispatch(loadAdmin());
-    } catch (err) {
-        const errors = err.response.data.errors;
+    } catch (error) {
+        const errors = error.response.data.errors;
 
         if(errors) {
             console.log(errors);
