@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // Components
 import Landing from "./components/Landing";
@@ -10,6 +10,7 @@ import Nav from "./components/Nav";
 import Help from "./components/Help";
 import Login from './components/Login';
 import Admin from "./components/Admin";
+import PrivateRoute from "./components/routing/PrivateRoute";
 
 // Redux
 import { Provider } from 'react-redux';
@@ -40,16 +41,16 @@ const App = () => {
         <Route exact path="/">
           <Landing></Landing>
         </Route>
-        <Route path="/map">
-          <Nav></Nav>
-          <Map setShowModal={setModalLocation}></Map>
-        </Route>
-        <Route path="/login">
-          <Login setShowModal={setShowModal}></Login>
-        </Route>
-        <Route path='/admin'>
-          <Admin setShowModal={setShowModal}></Admin>
-        </Route>
+        <Switch>
+          <Route path="/map">
+            <Nav></Nav>
+            <Map setShowModal={setModalLocation}></Map>
+          </Route>
+          <Route path="/login">
+            <Login setShowModal={setShowModal}></Login>
+          </Route>
+          <PrivateRoute exact path='/admin' setShowModal={setShowModal} component={Admin}/>
+        </Switch>
       </Router>
     </Provider>
   );
