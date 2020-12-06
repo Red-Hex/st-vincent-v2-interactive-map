@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from "react";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import CreateModal from './CreateModal';
+import { logout } from '../actions/auth';
 
 import "../css/Header.css";
 import "../css/Admin.css";
@@ -29,6 +31,7 @@ const Admin = ()  => {
                 </Link>
                 <h2 class="title">Admin Panel</h2>
                 <p onClick={() => {setShowCreate(true)}} className='backButton'>Create Post</p>
+                <Link onClick={logout} to='/map' className='backButton'>Log Out</Link>
                 <h2 class="title">Posts</h2>
                 <table className='post-container'>
                     <thead>
@@ -58,4 +61,13 @@ const Admin = ()  => {
     )
 }
 
-export default Admin;
+Admin.propTypes = {
+    logout: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+}
+
+const mapStateToProps = state => ({
+    auth: state.auth
+})
+
+export default connect(mapStateToProps, {logout})(Admin);
