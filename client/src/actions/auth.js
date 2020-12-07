@@ -10,7 +10,7 @@ import {
 } from './types';
 import setAuthToken from '../utils/setAuthToken';
 
-// Loading a user
+// Loading an Admin Account
 export const loadAdmin = () => async dispatch => {
     if(localStorage.token) {
         setAuthToken(localStorage.token)
@@ -28,7 +28,38 @@ export const loadAdmin = () => async dispatch => {
             type: AUTH_ERROR
         });
     }
-}
+};
+// Register an Admin 
+export const register = ({ name, email, password }) => async dispatch => {
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+
+    const body = JSON.stringify({ name, email, password });
+
+    try {
+        const res = await axios.post('/api/admins', body, config);
+
+        dispatch({
+            type: REGISTER_SUCCESS,
+            payload: res.data
+        });
+
+        dispatch(loadAdmin());
+    } catch (error) {
+        const errors = error.response.data.errors;
+
+        if(errors) {
+            console.log(errors);
+        }
+
+        dispatch({
+            type: REGISTER_FAIL
+        });
+    }
+};
 
 // Admin Login
 export const login = (email, password) => async dispatch => {

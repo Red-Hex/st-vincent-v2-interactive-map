@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { register } from '../actions/auth'
 import { logout } from '../actions/auth';
 import CreateModal from './CreateModal';
 
