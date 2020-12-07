@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { register } from '../actions/auth'
 import { logout } from '../actions/auth';
 import CreateModal from './CreateModal';
+import RegisterAdmin from './RegisterAdmin';
 
 
 import "../css/Header.css";
@@ -14,6 +14,7 @@ import "../css/Admin.css";
 export const Admin = ({ logout })  => {
     const [posts, setPosts] = useState([]);
     const [showCreate, setShowCreate] = useState(false);
+    const [showRegister, setShowRegister] = useState(false);
 
     useEffect(() => {
         axios.get('http://localhost:5000/api/posts')
@@ -30,6 +31,7 @@ export const Admin = ({ logout })  => {
     return (
         <div className="admin">
             {showCreate ? <CreateModal setShowCreate={setShowCreate} />:null}
+            {showRegister ? <RegisterAdmin setShowRegister={setShowRegister}/>:null}
             <Fragment>
                 <Link to="/map">
                     <p className='backButton'>Back To Map</p>
@@ -37,6 +39,7 @@ export const Admin = ({ logout })  => {
                 <h2 className="title">Admin Panel</h2>
                 <div className='admin-buttons'>
                     <p onClick={() => {setShowCreate(true)}} className='backButton'>Create Post</p>
+                    <p onClick={() => {setShowRegister(true)}} className='backButton'>Register Admin</p>
                     <a href="/map" onClick={unsetUser}>
                         <p className='backButton'>Log Out</p>
                     </a>

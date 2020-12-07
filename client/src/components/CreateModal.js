@@ -32,14 +32,13 @@ const CreateModal = ({setShowCreate}) => {
           headers: {
               'x-auth-token': token
           }
-      })
-            .then(() => {
-                console.log('Post Created');
-                setShowCreate(false);
-            }).catch(error => {
-                console.log(error.message);
-            }) 
-    }
+        })
+        .then(() => {
+            setShowCreate(false);
+        }).catch(error => {
+            console.log(error.message);
+        }) 
+    };
 
 
     useEffect(() => {

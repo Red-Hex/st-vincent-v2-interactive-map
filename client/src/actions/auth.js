@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 import {
     REGISTER_SUCCESS,
     USER_LOADED,
@@ -31,11 +32,14 @@ export const loadAdmin = () => async dispatch => {
 };
 // Register an Admin 
 export const register = ({ name, email, password }) => async dispatch => {
+    const token = useSelector(state => state.token);
+
     const config = {
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'x-auth-token': token 
         }
-    }
+    };
 
     const body = JSON.stringify({ name, email, password });
 
@@ -46,8 +50,7 @@ export const register = ({ name, email, password }) => async dispatch => {
             type: REGISTER_SUCCESS,
             payload: res.data
         });
-
-        dispatch(loadAdmin());
+        console.log('Register Success');
     } catch (error) {
         const errors = error.response.data.errors;
 
