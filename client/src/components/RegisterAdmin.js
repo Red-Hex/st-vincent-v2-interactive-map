@@ -1,7 +1,8 @@
 import React, { Fragment, useState } from 'react';
 import { FaTimes } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
-import { register } from '../actions/auth';
+import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 import '../css/Form.css';
 
@@ -17,16 +18,24 @@ const RegisterAdmin = ({ setShowRegister }) => {
 
     const onChange = e => 
         setFormData({ ...formData, [e.target.name]: e.target.value });
+    
+    const token = useSelector(state => state.token);
 
     const onSubmit = async e => {
-        e.preventDafualt();
-
-        console.log('New Admin Registered');
 
         if(password !== password2) {
             console.log('passwords do not match');
         } else {
-            register({ name, email, password });
+            e.preventDefault();
+            setShowRegister(false);
+
+            console.log('New Admin Registered');
+    
+            axios.post('http://localhost:5000/api/admins', formData, {
+              headers: {
+                  'x-auth-token': token
+              }
+            });
         }
     };
 
@@ -73,7 +82,7 @@ const RegisterAdmin = ({ setShowRegister }) => {
                     <div className='form-group'>
                         <input
                             type="password2"
-                            placeholder="Conform Password"
+                            placeholder="Confirm Password"
                             name="password2"
                             value={password2}
                             onChange={e => onChange(e)}
@@ -83,7 +92,7 @@ const RegisterAdmin = ({ setShowRegister }) => {
                     <div className='form-group'>
                         <input className='i-button'
                                 type='submit'
-                                value='Create Post'
+                                value='Create Admin'
                         />
                     </div>
                 </form>

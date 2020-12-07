@@ -30,40 +30,6 @@ export const loadAdmin = () => async dispatch => {
         });
     }
 };
-// Register an Admin 
-export const register = ({ name, email, password }) => async dispatch => {
-    const token = useSelector(state => state.token);
-
-    const config = {
-        headers: {
-            'Content-Type': 'application/json',
-            'x-auth-token': token 
-        }
-    };
-
-    const body = JSON.stringify({ name, email, password });
-
-    try {
-        const res = await axios.post('/api/admins', body, config);
-
-        dispatch({
-            type: REGISTER_SUCCESS,
-            payload: res.data
-        });
-        console.log('Register Success');
-    } catch (error) {
-        const errors = error.response.data.errors;
-
-        if(errors) {
-            console.log(errors);
-        }
-
-        dispatch({
-            type: REGISTER_FAIL
-        });
-    }
-};
-
 // Admin Login
 export const login = (email, password) => async dispatch => {
     const config = {
