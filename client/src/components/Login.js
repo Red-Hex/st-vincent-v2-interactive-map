@@ -19,7 +19,7 @@ export const Login = ({ login , isAuthenticated }) => {
 
     const onSubmit = async e => {
         e.preventDefault();
-            login(email, password)
+            login(email, password) 
     };
 
     // Redirection Once Successfully Logged in 
